@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>لوحة التحكم | منصة حساب المقاعد</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">منصة حساب المقاعد</div>
+    <div class="user-area">
+      <span id="currentUser" class="user-badge"></span>
+      <button id="logoutBtn" class="btn-ghost" type="button">خروج</button>
+    </div>
+  </header>
+  <main class="container">
+    <section class="summary-block">
+      <div class="summary-item">
+        <label for="totalVotes">عدد الأصوات الصحيحة المعبر عنها</label>
+        <input id="totalVotes" type="number" min="1" step="1" inputmode="numeric" placeholder="أدخل العدد الإجمالي">
+      </div>
+      <div class="summary-item computed">
+        <span class="label">العتبة (5%)</span>
+        <strong id="thresholdValue">—</strong>
+      </div>
+      <div class="summary-item computed">
+        <span class="label">معامل المقعد (÷ 19)</span>
+        <strong id="coefficientValue">—</strong>
+      </div>
+    </section>
+    <div class="actions page-actions"><a class="btn-primary link-button" href="/members">ترتيب أعضاء القوائم الحزبية ←</a></div>
+    <h2 class="section-title">الأحزاب المتنافسة</h2>
+    <section class="cards">
+      <article class="party-card" data-party="fln" tabindex="0" role="button" aria-label="إدخال أصوات 01 حزب جبهة التحرير الوطني">
+        <div class="party-flag fln"></div><h3><span class="party-number">01</span> حزب جبهة التحرير الوطني</h3>
+        <p class="party-votes">الأصوات: <span data-votes="fln">—</span></p>
+      </article>
+      <article class="party-card" data-party="fm" tabindex="0" role="button" aria-label="إدخال أصوات 03 حزب جبهة المستقبل">
+        <div class="party-flag fm"></div><h3><span class="party-number">03</span> حزب جبهة المستقبل</h3>
+        <p class="party-votes">الأصوات: <span data-votes="fm">—</span></p>
+      </article>
+      <article class="party-card" data-party="msp" tabindex="0" role="button" aria-label="إدخال أصوات 05 حزب حركة مجتمع السلم">
+        <div class="party-flag msp"></div><h3><span class="party-number">05</span> حزب حركة مجتمع السلم</h3>
+        <p class="party-votes">الأصوات: <span data-votes="msp">—</span></p>
+      </article>
+    </section>
+    <div class="actions">
+      <button id="confirmBtn" class="btn-primary" type="button" disabled>تأكيد القيم المدخلة</button>
+      <button id="resetBtn" class="btn-ghost" type="button">تصفير</button>
+    </div>
+    <section id="resultsSection" class="results hidden" aria-live="polite"></section>
+    <p id="draftStatus" class="muted small" aria-live="polite">تُحفظ الأرقام المدخلة تلقائياً في قاعدة البيانات.</p>
+
+    <section class="history">
+      <h2 class="section-title">السجلات السابقة</h2>
+      <div id="historyList"><p class="muted">جاري التحميل...</p></div>
+    </section>
+  </main>
+  <div id="modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-content">
+      <h3 id="modalTitle"></h3>
+      <label for="modalInput">عدد الأصوات المتحصل عليها</label>
+      <input id="modalInput" type="number" min="0" step="1" inputmode="numeric" placeholder="أدخل العدد">
+      <div class="modal-actions">
+        <button id="modalCancel" class="btn-ghost" type="button">إلغاء</button>
+        <button id="modalSave" class="btn-primary" type="button">حفظ</button>
+      </div>
+    </div>
+  </div>
+  <script src="/app.js"></script>
+</body>
+</html>

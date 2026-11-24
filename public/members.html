@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ترتيب أعضاء القوائم | منصة حساب المقاعد</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">ترتيب أعضاء القوائم الحزبية</div>
+    <div class="user-area">
+      <a class="btn-ghost nav-link" href="/dashboard">العودة إلى حساب المقاعد</a>
+      <span id="currentUser" class="user-badge"></span>
+      <button id="logoutBtn" class="btn-ghost" type="button">خروج</button>
+    </div>
+  </header>
+  <main class="container">
+    <section class="members-intro">
+      <h1>ترتيب أعضاء كل قائمة</h1>
+      <p>أدخل عدد الأصوات المتحصل عليها لكل عضو حسب رقمه التعريفي من 01 إلى 26. لا حاجة لإدخال الأسماء.</p>
+    </section>
+
+    <section class="member-controls">
+      <div class="summary-item">
+        <label for="scenarioSelect">العملية الانتخابية</label>
+        <select id="scenarioSelect"><option value="">جاري تحميل العمليات...</option></select>
+      </div>
+      <div class="summary-item">
+        <label for="partySelect">اختر الحزب</label>
+        <select id="partySelect" disabled>
+          <option value="fln">01 حزب جبهة التحرير الوطني</option>
+          <option value="fm">03 حزب جبهة المستقبل</option>
+          <option value="msp">05 حزب حركة مجتمع السلم</option>
+        </select>
+      </div>
+      <div class="member-seat-info" id="seatInfo">اختر العملية الانتخابية لعرض عدد المقاعد الممنوحة لكل حزب.</div>
+    </section>
+
+    <section class="member-panel">
+      <div class="member-panel-head">
+        <div>
+          <h2 id="selectedPartyTitle">01 حزب جبهة التحرير الوطني</h2>
+          <p class="muted">تُحفظ كل قيمة تلقائياً في قاعدة البيانات أثناء الإدخال، ويمكنك العودة وتعديلها لاحقاً.</p>
+        </div>
+        <span id="saveStatus" class="badge">لم يتم الحفظ بعد</span>
+      </div>
+      <div id="membersGrid" class="members-grid"></div>
+      <div class="actions member-actions">
+        <button id="saveMembersBtn" class="btn-primary" type="button" disabled>حفظ أصوات القائمة الآن</button>
+        <button id="clearMembersBtn" class="btn-ghost" type="button" disabled>مسح المدخلات</button>
+      </div>
+    </section>
+
+    <section class="member-panel allocation-panel">
+      <div class="member-panel-head">
+        <div>
+          <h2>النتيجة النهائية لترتيب الأعضاء</h2>
+          <p class="muted">يتم تحديد الفائزين بعد حفظ قوائم الأحزاب الثلاث كاملة.</p>
+        </div>
+        <span id="completionStatus" class="badge">بانتظار إدخال القوائم</span>
+      </div>
+      <div id="allocationResults" class="allocation-results">
+        <p class="muted">اختر عملية انتخابية ثم أكمل إدخال أصوات الأعضاء الـ26 لكل حزب.</p>
+      </div>
+    </section>
+  </main>
+  <script src="/members.js"></script>
+</body>
+</html>
